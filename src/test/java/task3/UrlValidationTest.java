@@ -30,10 +30,10 @@ class UrlValidationTest {
     void shouldReturnFalseForNotCorrectAddress() {
         //given
         String[] urlAddress = {
-                "://www.onet.pl",
-                "https mail.google.com",
+                "//www.onet.pl",
+                "https//mail.google.com",
                 "http://wiadomosci.onet",
-                "http: onet.pl"};
+                "http:// onet.pl"};
         boolean[] expResult = {false, false, false, false};
 
         //when
