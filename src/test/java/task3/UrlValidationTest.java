@@ -12,15 +12,19 @@ class UrlValidationTest {
                 "http://www.onet.pl",
                 "https://mail.google.com",
                 "http://wiadomosci.onet.pl",
-                "http://onet.pl"};
-        boolean[] expResult = {true, true, true, true};
+                "http://onet.pl",
+                "http://www.test.eu",
+                "https://google.de"};
+        boolean[] expResult = {true, true, true, true, true, true};
 
         //when
         boolean [] actResult = {
                 UrlValidation.isUrlCorrect(urlAddress[0]),
                 UrlValidation.isUrlCorrect(urlAddress[1]),
                 UrlValidation.isUrlCorrect(urlAddress[2]),
-                UrlValidation.isUrlCorrect(urlAddress[3])};
+                UrlValidation.isUrlCorrect(urlAddress[3]),
+                UrlValidation.isUrlCorrect(urlAddress[4]),
+                UrlValidation.isUrlCorrect(urlAddress[5])};
 
         //then
         Assertions.assertArrayEquals(expResult, actResult);
@@ -32,7 +36,7 @@ class UrlValidationTest {
         String[] urlAddress = {
                 "//www.onet.pl",
                 "https//mail.google.com",
-                "http://wiadomosci.onet",
+                "http: wiadomosci.onet",
                 "http:// onet.pl"};
         boolean[] expResult = {false, false, false, false};
 
